@@ -231,14 +231,9 @@ $(function() {
 								<td colspan="3"><input type="text" id="datepicker"
 									size="13" readonly="readonly" name="datepicker"> 
 								<select id="time" name="time" style="width: 25%;" >
-								<c:forEach var="t" begin="0" end="24">
-									<c:if test="${t < 10 }">
-									<option  value="0${t}00">0${t}:00</option>
-									</c:if>
-									<c:if test="${t>=10 }">
-									<option value="0${t}00">${t}:00</option>
-									</c:if>
-								</c:forEach>
+								<c:forTokens var="t" items="${time }" delims=",">
+									<option value="${t }">${t}:00</option>
+								</c:forTokens>
 								</select>
 								시이후 
 					</td>

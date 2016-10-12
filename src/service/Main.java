@@ -29,8 +29,8 @@ public class Main implements CommandProcess {
 		List<Bus_Info> list3 = bd.selectBus();
 		request.setAttribute("list3", list3);
 		
-		
-		
+		String time = "00,01,02,03,04,05,06,07,08,09,10,12,13,14,15,16,17,18,19,20";
+		request.setAttribute("time", time);
 		return "main/body.jsp";
 	}
 	

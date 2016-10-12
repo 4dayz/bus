@@ -105,6 +105,7 @@ function chk() {
 				
 			}	
 		} 
+ 		
 </script>
 </head>
 <body>
@@ -261,24 +262,17 @@ function chk() {
  			</dt>
  			<dd>
  				<select class="sel" id="time" name="time" title="시간선택" style="width: 65px;">
- 				<c:forEach var="t" begin="0" end="24">
- 					<c:if test="${time eq t }">
-					<c:if test="${t < 10 }">
-						<option  selected="selected" value="${t}">0${t}:00</option>
-					</c:if>
-					<c:if test="${t>=10 }">
+ 					<c:forTokens var="t" items="${time }" delims="," varStatus="status">
+						<c:if test="${status.index == 0 }"> <!-- 시간 첫번째 지정 00:00 -->
+						<option selected="selected" value="${t}">${t}:00</option>	
+						</c:if>
+						<c:if test="${seltime eq t }">
 						<option selected="selected" value="${t}">${t}:00</option>
-					</c:if>
-					</c:if>
-					<c:if test="${time ne t }">
-					<c:if test="${t < 10 }">
-						<option value="0${t}00">0${t}:00</option>
-					</c:if>
-					<c:if test="${t>=10 }">
-						<option value="0${t}00">${t}:00</option>
-					</c:if>
-					</c:if>
-				</c:forEach>
+						</c:if>
+						<c:if test="${seltime ne t }">
+						<option  value="${t}">${t}:00</option>
+						</c:if>
+ 				</c:forTokens>
  				</select>
  				시이후
  			</dd>

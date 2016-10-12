@@ -42,20 +42,24 @@ public class BusSelect implements CommandProcess {
 			
 			String select2 = request.getParameter("select2");
 			String datepicker = request.getParameter("datepicker");
-			String time = request.getParameter("time");
 			String grd = request.getParameter("grd");
 			String adult = request.getParameter("adult");
 			String child = request.getParameter("child");
-			
+			String selTime =  request.getParameter("time");
 			request.setAttribute("select2", select2);
 			request.setAttribute("datepicker", datepicker);
-			request.setAttribute("time", time);
 			request.setAttribute("grd", grd);
 			request.setAttribute("adult", adult);
 			request.setAttribute("child", child);
 			
+			// 시간 값 지정  및 넘기기
+			String time = "00,01,02,03,04,05,06,07,08,09,10,12,13,14,15,16,17,18,19,20";
+			request.setAttribute("time", time);
 			//버스데이터 불러오기
-			List<Bus_Info> list4 = bd.selectBook(select1,select2,time,grd);
+			
+			List<Bus_Info> list4 = bd.selectBook(select1,select2,selTime,grd);
+					
+					request.setAttribute("seltime", selTime ); // 데이터베이스에서 받은 값 넘기기 
 					request.setAttribute("list4", list4);
 		return "bus/busSelect.jsp";
 	}

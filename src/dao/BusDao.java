@@ -135,7 +135,7 @@ public class BusDao {
 	}
 	
 	//버스 데이터 불러오기 
-	public List<Bus_Info> selectBook(String select1, String select2, String time, String grd) {
+	public List<Bus_Info> selectBook(String select1, String select2, String selTime, String grd) {
 		List<Bus_Info> list = new ArrayList<>();
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -160,7 +160,7 @@ public class BusDao {
 				pstmt = conn.prepareStatement(sqlbo);
 				pstmt.setString(1, select1);
 				pstmt.setString(2, select2);
-				pstmt.setString(3, time);
+				pstmt.setString(3, selTime);
 				pstmt.setString(4, grd);
 				rs = pstmt.executeQuery();
 
@@ -168,7 +168,7 @@ public class BusDao {
 				pstmt = conn.prepareStatement(sqlbo1);
 				pstmt.setString(1, select1);
 				pstmt.setString(2, select2);
-				pstmt.setString(3, time);
+				pstmt.setString(3, selTime);
 				rs = pstmt.executeQuery();
 
 
