@@ -8,17 +8,14 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
-
-  /* title */
-.content {margin-top :70px; margin-right:200px; width:688px; border-top:1px solid #dcdcdc; position:relative; float:right;}
+/*   
+.content {margin-top :70px; margin-right:200px; width:688px; border-top:1px solid #dcdcdc;  float:right;}
 .line {position:absolute; right:0; top:-1px;}
 .sub_title {margin-bottom:30px; padding-top:24px; width:650px; height:34px; border-bottom:1px solid #ddd;}
 .sub_title h3 {float:left; margin-top: 13px;}
 .sub_title .dir {padding-right:10px; display:inline; float:right;}
 .sub_title .dir img {vertical-align:middle;}
-.sub_title .new {font-weight:bold;}
 
- 	/* 승차권예매 */
 .contbox {width:650px; color:#5f5f5f;}
 .box_reservation_01 .date {width:650px; height:20px; line-height:18px; font-size:12px; font-weight:bold; color:#666; text-align:right;}
 .box_reservation_01 .ticket {width:650px; border-top:2px solid #6aa9e8;}
@@ -26,39 +23,38 @@
 .box_reservation_01 .ticket th {background:url("images/bus/bg_tableHeader_01.gif") left top repeat-x; border-bottom:1px solid #b6b6b6;}
 .box_reservation_01 .ticket .last {border-right:0;}
 
-/* 	요금표 */
 .box_reservation_01 .bus_fare {margin-top:30px; width:650px; border-top:2px solid #6aa9e8;}
 .box_reservation_01 .bus_fare th, .box_reservation_01 .bus_fare td {height:28 px; line-height:28px; color:#333; text-align:center; border-right:1px solid #dedede; border-bottom:1px solid #dedede;}
 .box_reservation_01 .bus_fare th {background:url("images/bus/bg_tableHeader_01.gif") left top repeat-x; border-bottom:1px solid #b6b6b6;}
 .box_reservation_01 .bus_fare .last {border-right:0;}
 
 
-/* 왼쪽 버스선택바 */
 .left {float:left;}
 #leftmenu01 {margin-top:70px; margin-left:20px; width:225px; font-size:11px; display:inline; overflow:hidden; position:relative; top:-20px; float:left;}
 #leftmenu01 dl {margin-bottom:15px; width:224px; background:url("images/bus/bg_leftmenu02.png") left bottom no-repeat; position:relative;}
 #leftmenu01 dt.bigtit {height:90px; overflow:hidden;}
-#leftmenu01 dt.tit {width:75px; /*height:30px;*/ color:#666; font-weight:bold; line-height:28px; text-indent:20px; background:url("images/bus/bul_02.gif") 13px 11px no-repeat; float:left; clear:both;}
+#leftmenu01 dt.tit {width:75px; height:30px; color:#666; font-weight:bold; line-height:28px; text-indent:20px; background:url("images/bus/bul_02.gif") 13px 11px no-repeat; float:left; clear:both;}
 #leftmenu01 dd {height:30px; line-height:28px;}
 #leftmenu01 dd.btn {text-align:center; margin-right: 40px;}
 #leftmenu01 dd.bottom {height:20px; overflow:hidden;  margin-left: 0px;}
 #leftmenu01 dt.vit {visibility:hidden;}
 
-	/* 달력아이콘 위치 조정 */
 img.ui-datepicker-trigger {
 	padding-left:5px;
 	vertical-align: top;
-}
-	
+} */
 </style>
 
 <!--  제이쿼리 달력  -->
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" />
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 <script type="text/javascript" src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+<script type="text/javascript" src="comm/js/script.js"></script>
 <link rel="stylesheet" href="comm/css/style.css" />
+<link rel="stylesheet" href="comm/css/busStyle.css" />
 <script type="text/javascript">
-$(function() {
+/* $(function() {
+
 	$( "#datepicker" ).datepicker({
 		showOn: "button",
 		buttonImage: "images/main/cal.gif",
@@ -85,7 +81,8 @@ $(function() {
 		dateFormat : "yy년mm월dd일",
 		currentText: '오늘'
 	});
-  });
+});
+
  function sel() {
 	var val = $("#select1").val();
 	location.href="busSelect.do?select1=" + val;
@@ -103,9 +100,37 @@ function chk() {
 				document.getElementById("adult").focus();
 				return false;
 				
-			}	
-		} 
- 		
+			}
+}
+// null 값 체크
+function nullchk() {
+	var st = document.getElementById("select1").selectedIndex;
+	var ad = document.getElementById("adult").selectedIndex;
+	var ch = document.getElementById("child").selectedIndex;
+	
+	if(st == 0){
+		alert("출발지를 선택하세요!");
+		return false;		
+	}
+
+if(ad == 0 && ch == 0 ){
+		alert("매수를 선택하세요!")
+	return false;	
+}
+} 		
+ */
+/* function submit() {
+	var button = $("#button").val();
+
+	if(button == "조회") {
+		document.left_Box.action="busSelect.do";
+		document.left_Box.submit();
+	} else if(button == "선택") {
+		document.left_Box.action="seatSelect.do";
+		document.left_Box.submit();
+	}
+	
+} */
 </script>
 </head>
 <body>
@@ -127,22 +152,29 @@ function chk() {
 	<div class="contbox box_reservation_01">
 		<p class="date">
 		검색결과:
-		 <font color="#FF6600" >수원</font>
-		
+		<c:forEach var="c" items="${list }" >
+			<c:if test="${select1 eq c.st_code }">
+		 		<font color="#FF6600" >${c.st_name }</font>
+			</c:if>
+		</c:forEach>
 		->
-		<font color="#009900">광주</font>
+		<c:forEach var="c" items="${list2 }">
+			<c:if test="${select2 eq c.dt_code }">
+				<font color="#009900">${c.dt_name }</font>
+			</c:if>
+		</c:forEach>
 		
 		</p>
 		<p class="dir">&nbsp;</p>
 		<table class="ticket" summary="버스선택">
 			<caption>버스선택</caption>
-			<colgroup>
+			<%-- <colgroup>
 				<col width="120">
 				<col width="120">
 				<col width="*">
 				<col width="120">
 				<col width="120">
-			</colgroup>
+			</colgroup> --%>
 			<thead>
 				<tr>
 					<th scope="col" >출발시각</th>
@@ -160,7 +192,8 @@ function chk() {
 					<td>${s.grd_name }</td>
 					<td>${s.b_company }</td>
 					<td>${s.all_seat }</td>
-					<td><input type="image" src="images/btn/btn_select.gif" onclick="" title="선택" alt="선택"> </td>
+					<td><input type="image" src="images/btn/btn_select.gif" 
+					onclick="location.href='seatSelect.do?grd=${s.grd_code}&adult=${adult }&child=${child }&date=${datepicker }&time=${s.start_time }&select2=${select2 }&select1=${select1 }&bus_num=${s.bus_num }'" title="선택" alt="선택"> </td>
 				</tr>
 				</c:forEach>
 				<tr>
@@ -171,22 +204,23 @@ function chk() {
 		<!-- 버스예매예약 -->
 		<table class="bus_fare" summary="요금표">
 			<caption>요금표</caption>
-			<colgroup>
-				<col width="80">
-				<col width="80">
-			</colgroup>
+<%-- 			<colgroup>
+				<col width="120">
+				<col width="120">
+			</colgroup> --%>
 			<thead>
+			
 			<tr>
-				<th scope="col">구분</th>
-				<th scope="col" colspan="3">일반고속</th>
-				<th scope="col">우등고속</th>
+				<th scope="col" width="20%">구분</th>
+				<th scope="col" colspan="2" width="40%">일반고속</th>
+				<th scope="col" colspan="2" width="40%">우등고속</th>
 			</tr>
 			</thead>
 			<tbody>
-				<tr>
+								<tr>
 					<td>일반요금</td>
-					<td colspan="3"></td>
-					<td class="last"></td>
+					<td colspan="2">${li.price}</td>
+					<td colspan="2">${li.primeum}</td>
 				</tr>
 				<tr>
 					<td>아동요금</td>
@@ -194,11 +228,11 @@ function chk() {
 				</tr>
 				<tr>
 					<td>소요시간</td>
-					<td class="last" colspan="6"></td>
+					<td class="last" colspan="6">${li.hour }시간 ${li.min }분</td>
 				</tr>
 				<tr>
 					<td>거리</td>
-					<td class="last" colspan="6"></td>
+					<td class="last" colspan="6">${li.run_way }KM</td>
 				</tr>
 			</tbody>
 		</table>
@@ -209,7 +243,7 @@ function chk() {
 	<!-- content -->
  	<div id="leftmenu01">
  	<div class="left" style="display: block;">
- 	<form action="" name="left_Box">
+ 	<form action="busSelect.do" method="post" name="left_Box">
  		<dl class="lmenu03">
  			<dt class="bigtit">
  				<img alt="승차권예약예매" src="images/bus/title_leftmenu03.png">	
@@ -218,7 +252,7 @@ function chk() {
  				<label>출발지</label>
  			</dt>
  			<dd>
- 				<select class="sel" id="select1" name="select1" style="width: 135px;" title="출발지선택" onchange="sel()">
+ 				<select class="sel" id="select1" name="select1" style="width: 135px;" title="출발지선택" onchange="sel2()">
  				<c:forEach var="b" items="${list}" varStatus="status">
 					<c:if test="${status.index == 0 }">
 						<option selected="selected">선&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;택</option>
@@ -237,11 +271,8 @@ function chk() {
  			</dt>
  			<dd>
  				<select class="sel" id="select2" name="select2" style="width: 135px;" title="도착지선택">
-											
-					<c:forEach var="b" items="${list2 }" varStatus="status" >
-					<c:if test="${status.index == 0 }">
-						<option selected="selected">선&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;택</option>
-						</c:if>
+							<option selected="selected">선&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;택</option>					
+					<c:forEach var="b" items="${list2 }" varStatus="status1" >
 						<c:if  test="${select2 eq b.dt_code }">
 							<option selected="selected" value="${b.dt_code }">${b.dt_name }[${b.dt_code }]</option>
 						</c:if>
@@ -255,7 +286,12 @@ function chk() {
  				<label>출발일시</label>
  			</dt>
  			<dd>
- 			<input type="text" id="datepicker" name="datepicker" size="10" value="${datepicker }"  readonly="readonly">
+ 			<c:if test="${empty datepicker}">
+ 				<input type="text" id="datepicker" name="datepicker" size="10" value="${year }년${month}월${day}일"  readonly="readonly">
+ 			</c:if> 
+ 			<c:if test="${!empty datepicker}">
+ 				<input type="text" id="datepicker" name="datepicker" size="10" value="${datepicker }"  readonly="readonly">
+ 			</c:if>
  			</dd>
  			<dt class="tit vit">
  				<label>시간</label>
@@ -303,7 +339,7 @@ function chk() {
  				<select class="sel" id="adult" name="adult" style="width: 50px;"title="어른매수 선택" onchange="chk()">
  				<c:forEach var="a" begin="0" end="6">
  					<c:if test="${adult eq a}"> 
-						<option selected="selected" value="${a}">${a}</option>
+						<option  selected="selected" value="${a}">${a}</option>
 					</c:if>
 					<c:if test="${adult ne a}"> 
 						<option  value="${a}">${a}</option>
@@ -328,7 +364,7 @@ function chk() {
  				 </select>명	
  			</dd>
  			<dd class="btn">
- 				<input type="image" src="images/btn/btn_search.gif" alt="조회" title="조회">
+ 				<input type="image" src="images/btn/btn_search.gif" value="조회" alt="조회" title="조회" onclick="return nullchk()">
  			</dd>
  			<dd class="bottom">
  				<img alt="" src="images/bus/left_bottom.png">
@@ -337,7 +373,6 @@ function chk() {
  		</dl>
  		</form>
  	</div>
- 	
  	</div>
 </div>
 </body>

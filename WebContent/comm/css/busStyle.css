@@ -1,0 +1,123 @@
+/* header */
+
+/*  로그인 사이트맵 마이페이지 */
+div.navi {	width: 713px; float: right;	font-variant: small-caps;}
+ul.topmenu {margin-top: 10px; width: 288px;height: 15px;
+			float: right; margin-right: 120px;}
+ul.topmenu li {	height: 10px; float: left;display: block;}
+ul.topmenu li.menu1 {width: 50px;}
+ul.topmenu li.menu2 {width: 60px; display: none;}
+ul.topmenu li.menu3 {width: 60px;}
+ul.topmenu li.menu4 {width: 76px; display: none;}
+
+ /* 메뉴바 */
+.navi2 {width: 900px; height: 70px; position: fixed; right: 0;top: 24px;
+		overflow: hidden;float :left;clear: both;}
+.navi2 ul li {height: 45px; float: left; list-style: none;}
+.navi2 ul li a {width: 100%;height: 100%;display: block;overflow: hidden;}
+.navi2 ul li.menu1 {width: 133px;}
+.navi2 ul li.menu2 {width: 133px;}
+.navi2 ul li.menu3 {width: 133px;}
+.navi2 ul li.menu4  {width: 133px;}
+.navi2 ul li.menu5  {width: 133px;}
+.navi2 ul li.menu6 {width: 133px;}
+
+ /* 메인로고 */
+.header h1 {margin-top:-5px ; margin-left :120px; width:200px; height:80px; float:left;}
+.header h1 img{ width: 200px; height: 80px;}
+
+/* body */
+
+/* body메뉴바 */
+.tab {	width: 492px; height: 263px; margin-top: 70px;	margin-right: 300px; float: right;}
+.ticket {overflow: hidden;}
+.ticket li {list-style: none; padding-right: 1px; height: 37px;	float: left;}
+.ticket li a { height: 100%; display: block;	overflow: hidden;}
+
+/* 	제목및 .none 감추기 */ 	
+caption, .none { display: none; }
+
+/* 	예매 선택 테이블 */
+.board1 th {text-align: left;}
+.board1, .board2 {border: 1px solid silver;}
+.board2 {padding-top: 10px;	overflow: hidden; display: none;}
+.board2 dt { padding: 0px 4px;	float: left; font-weight: bold;	clear: both;}
+.board2 img {float :right;	margin: -80px 70px;}
+.board2 p {font-size: small;font-style: oblique;}
+img.ui-datepicker-trigger {	padding-left:5px;vertical-align: top;}
+.content_left {padding-left:30px; width:350px; height:521px; float:left; }
+.content_left .visual {width:350px; height:230px; margin-top: 20px; }
+.content_left .notice {margin:20px 0; width:350px; position:relative;}
+
+/*  공지사항 고객센터 */	
+.notice p.more {text-align:right; position:absolute; right:1px; top:5px;}
+.notice ul.title {width:350px; height:37px; overflow:hidden;}
+.notice ul.title li {width:91px; height:27px; float:left;}
+.notice ul.title li a {height:100%;  display:block; overflow:hidden;}
+.notice ul.title li.title01 a {background-position:-191px 0px;}
+.notice ul.title li.title02 a {background-position:-282px 0px;}
+.notice ul.title li.title01 a:active, .notice ul.title li.title01 a:focus, .notice ul.title li.title01 a:hover {background-position:0 0px;}
+.notice ul.title li.title02 a:active, .notice ul.title li.title02 a:focus, .notice ul.title li.title02 a:hover {background-position:-91px 0px;}
+.notice dl.notice01, .notice dl.notice02 {background:; width:350px; height:75px;}
+.notice01 ul.bul li {text-indent:12px; background:url("../../images/bus/bul_01.gif") 3px 7px no-repeat;}
+.notice01 dd ul li {width:350px; height:20px; font-size:12px; line-height:20px; overflow:hidden; position:relative;}
+.notice02 ul.bul li {text-indent:12px; background:url("../../images/bus/bul_01.gif") 3px 7px no-repeat;}
+.notice02 dd ul li {width:350px; height:20px; font-size:12px; line-height:20px; overflow:hidden; position:relative;}
+
+ /* 이미지 슬라이드 */
+.bxslider img.resize{width: 350; height: 200px;   }
+
+/* busSelect style */
+	
+ /* title */
+.content {margin-top :70px; margin-right:200px; width:688px; border-top:1px solid #dcdcdc;  float:right;}
+.line {position:absolute; right:0; top:-1px;}
+.sub_title {margin-bottom:30px; padding-top:24px; width:650px; height:34px; border-bottom:1px solid #ddd;}
+.sub_title h3 {float:left; margin-top: 13px;}
+.sub_title .dir {padding-right:10px; display:inline; float:right;}
+.sub_title .dir img {vertical-align:middle;}
+
+/* 승차권예매 */
+.contbox {width:650px; color:#5f5f5f;}
+.box_reservation_01 .date {width:650px; height:20px; line-height:18px; font-size:12px; font-weight:bold; color:#666; text-align:right;}
+.box_reservation_01 .ticket {width:650px; border-top:2px solid #6aa9e8;}
+.box_reservation_01 .ticket th, .box_reservation_01 .ticket td {height:28 px; line-height:28px; color:#333; text-align:center; border-right:1px solid #dedede; border-bottom:1px solid #dedede;}
+.box_reservation_01 .ticket th {background:url("../../images/bus/bg_tableHeader_01.gif") left top repeat-x; border-bottom:1px solid #b6b6b6;}
+.box_reservation_01 .ticket .last {border-right:0;}
+
+/* 	요금표 */
+.box_reservation_01 .bus_fare {margin-top:30px; width:650px; border-top:2px solid #6aa9e8;}
+.box_reservation_01 .bus_fare th, .box_reservation_01 .bus_fare td {height:28 px; line-height:28px; color:#333; text-align:center; border-right:1px solid #dedede; border-bottom:1px solid #dedede;}
+.box_reservation_01 .bus_fare th {background:url("../../images/bus/bg_tableHeader_01.gif") left top repeat-x; border-bottom:1px solid #b6b6b6;}
+.box_reservation_01 .bus_fare .last {border-right:0;}
+
+
+/* 왼쪽 버스선택바 */
+.left {float:left;}
+#leftmenu01 {margin-top:70px; margin-left:20px; width:225px; font-size:11px; display:inline; overflow:hidden; position:relative; top:-20px; float:left;}
+#leftmenu01 dl {margin-bottom:15px; width:224px; background:url("../../images/bus/bg_leftmenu02.png") left bottom no-repeat; position:relative;}
+#leftmenu01 dt.bigtit {height:90px; overflow:hidden;}
+#leftmenu01 dt.tit {width:75px; /*height:30px;*/ color:#666; font-weight:bold; line-height:28px; text-indent:20px; background:url("../../images/bus/bul_02.gif") 13px 11px no-repeat; float:left; clear:both;}
+#leftmenu01 dd {height:30px; line-height:28px;}
+#leftmenu01 dd.btn {text-align:center; margin-right: 40px;}
+#leftmenu01 dd.bottom {height:20px; overflow:hidden;  margin-left: 0px;}
+#leftmenu01 dt.vit {visibility:hidden;}
+
+/* 달력아이콘 위치 조정 */
+img.ui-datepicker-trigger {	padding-left:5px; vertical-align: top;} */
+
+
+/* seatSelect */
+
+/* title */
+.sel_title {margin:5px 0; padding-top:13px; width:685px; height:27px; font-weight:bold; color:#333; text-align:center; background:url("../../images/bus/bg_sel_seat.gif") left top repeat-x;}
+.sblue {color:#408dd9; font-weight:bold;}
+
+/* 좌석 */
+.tbl_seat01 {margin:5px 0; width:100%; border-top:2px solid #dedede; border-bottom:2px solid #dedede;}
+.tbl_seat01 td {height:39px; text-align:center; background:#d3e4f4; border-right:1px solid #fff; border-bottom:1px solid #fff;}
+.tbl_seat01 td.lady {background:#c2e395;}
+.tbl_seat01 td.door {background:#eaeaea;}
+.tbl_seat01 td.nobg {background:#fff;}
+.tbl_seat01 td.last {border-right:0;}
+.tbl_seat01 td label {height:16px; line-height:14px; display:block;}

@@ -54,8 +54,11 @@ public class Controller extends HttpServlet {
 	    try { String command = request.getRequestURI();
 		      command = command.substring(
 		    		 request.getContextPath().length()+1); 
-	          com = (CommandProcess)commandMap.get(command); 
+		      System.out.println("command: "+command);
+	          com = (CommandProcess)commandMap.get(command);
+	          System.out.println("com: "+com);
 	          view = com.requestPro(request, response);
+	          System.out.println("view: "+view);
 	    } catch(Throwable e) { throw new ServletException(e); } 
 	    RequestDispatcher dispatcher =
 	      	request.getRequestDispatcher(view);

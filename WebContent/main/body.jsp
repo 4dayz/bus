@@ -6,9 +6,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
 <style type="text/css">
-.tab {
+/* .tab {
 	width: 492px;
 	height: 263px;
 	margin-top: 70px;
@@ -90,15 +89,30 @@ img.ui-datepicker-trigger {
 
 .notice02 ul.bul li {text-indent:12px; background:url("images/bus/bul_01.gif") 3px 7px no-repeat;}
 .notice02 dd ul li {width:305px; height:20px; font-size:12px; line-height:20px; overflow:hidden; position:relative;}
-
+ */
 </style>
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" />
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 <script type="text/javascript" src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+
+			
+<script type="text/javascript" src="comm/js/script.js"></script>
+
+<!-- jQuery library (served from Google) -->
+<script src="comm/js/jquery.bxslider.js"></script>
+<!-- bxSlider Javascript file -->
+<script src="comm/js/jquery.bxslider.min.js"></script>
+
+<script src="comm/js/jquery.fitvids.js"></script>
+<!-- bxSlider CSS file -->
+<link href="comm/css/jquery.bxslider.css" rel="stylesheet" />
+
+ <!-- css -->
 <link rel="stylesheet" href="comm/css/style.css" />
+<link rel="stylesheet" href="comm/css/busStyle.css" />
 <script type="text/javascript">
-	
-//달력
+
+/* //달력
 $(function() {
 		$( "#datepicker" ).datepicker({
 			showOn: "button",
@@ -126,6 +140,8 @@ $(function() {
 			dateFormat : "yy년mm월dd일",
 			currentText: '오늘'
 		});
+		$('#datepicker').val(
+				$.datepicker.formatDate('yy년mm월dd일', new Date()));
 	  });
 		
 		//버튼 보이기 /숨기기
@@ -161,9 +177,24 @@ $(function() {
 		}	
 	
 	}
-
+	// null 값 체크
+	function chknull() {
+		var st = document.getElementById("select1").selectedIndex;
+		var ad = document.getElementById("adult").selectedIndex;
+		var ch = document.getElementById("child").selectedIndex;
 		
+		if(st == 0){
+			alert("출발지를 선택하세요!");
+			return false;		
+		}
+	
+	if(ad == 0 && ch == 0 ){
+			alert("매수를 선택하세요!")
+		return false;	
+	} 
+	} 
 		
+		 */
 </script>
 <title>Insert title here</title>
 </head>
@@ -269,7 +300,7 @@ $(function() {
 						</tbody>
 					</table>
 					<p align="center">
-						<input type="image" src="images/main/btn1.png">
+						<input type="image" src="images/main/btn1.png" onclick="return nullchk(); ">
 					</p>
 				</div>
 			</form>
@@ -305,7 +336,15 @@ $(function() {
 	</div>
 	<!-- content_right -->
 	<div class="content_left">
-		<div class="visual"></div>
+		<div class="visual">
+			<ul class="bxslider">
+				<li><iframe width="854" height="480" src="https://www.youtube.com/embed/tDGt4FeHs64" frameborder="0" ></iframe></iframe> </li>			
+				<li><img alt="" src="images/slider/album.jpg"></li>
+				<li><img alt="" src="images/slider/album2.jpg"></li>
+				<li><img alt="" src="images/slider/album3.jpg"></li>
+				<li><img alt="" src="images/slider/album4.jpg"></li>
+			</ul>
+		</div>
 		<div class="notice">
 			<ul class="title">
 				<li class="title01"><a><img alt="" src="images/btn/n1.png"
@@ -346,3 +385,4 @@ $(function() {
 	<!-- container -->
 </body>
 </html>
+<%@ include file="footer.jsp"  %>

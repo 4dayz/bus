@@ -5,7 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="comm/css/busStyle.css" />
 <style type="text/css">
+
+/* 
 div.navi {
 	width: 713px;
 	float: right;
@@ -94,12 +97,14 @@ ul.topmenu li.menu4 {
 .navi2 ul li.menu6 {
 	width: 133px;
 }
-
+ */
 
 </style>
 </head>
 <body>
-	<div>
+	<div class="header" >
+		<h1><a href="body.do"><img alt="" src="images/main/mainlogo.png"></a></h1>
+		<div>
 		<div class="navi">
 			<ul class="topmenu">
 				<li class="menu3"><a>siteMap </a></li>
@@ -111,8 +116,8 @@ ul.topmenu li.menu4 {
 				
 			</ul>
 		</div>
-
 		<div class="navi2">
+			
 			<ul>
 				<li><img alt="#" src="images/main/m0_first.png"></li>
 				<li class="menu1"><a><img alt="#" src="images/btn/m1.png"
@@ -130,6 +135,7 @@ ul.topmenu li.menu4 {
 				<li><img alt="#" src="images/main/m11_end.png"></li>
 			</ul>
 
+		</div>
 		</div>
 	</div>
 </body>

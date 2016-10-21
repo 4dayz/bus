@@ -6,6 +6,9 @@ public class Line_Info {
 	private String st_name;
 	private String dt_code;
 	private String dt_name;
+	private int hour;
+	private int min;
+	private int primeum;
 	private int price;
 	private int run_time;
 	private int run_way;
@@ -26,7 +29,20 @@ public class Line_Info {
 	public void setRun_time(int run_time) {	this.run_time = run_time;}
 	public int getRun_way() {return run_way;}
 	public void setRun_way(int run_way) {this.run_way = run_way;}
-	
+	public int getPrimeum() {return primeum;}
+	public void setPrimeum(int primeum) {this.primeum = primeum;}
+	public int getHour() {
+		return hour;
+	}
+	public void setHour(int hour) {
+		this.hour = hour;
+	}
+	public int getMin() {
+		return min;
+	}
+	public void setMin(int min) {
+		this.min = min;
+	}
 	
 	
 }
